@@ -101,13 +101,10 @@ except Exception:
     st.sidebar.info("ℹ️ Sample test dataset not available for download.")
 
 
-
-
 if models_loaded:
     st.sidebar.success("✅ Models loaded successfully")
 else:
     st.sidebar.warning("⚠️ Models not loaded")
-
 model_choice = st.sidebar.selectbox(
     "🔽 Select Model",
     [
@@ -133,7 +130,6 @@ left_col, right_col = st.columns([2, 3])
 with left_col:
     st.subheader("📊 Model Performance Overview")
     st.info("Evaluation metrics computed on the uploaded labeled test dataset.")
-
 with right_col:
     st.subheader("🔥 Confusion Matrix")
     st.info("Confusion matrix based on actual vs predicted DTC classes.")
@@ -158,7 +154,6 @@ expected_features = [
 
 test_df = None
 y_true_labels = None
-
 if uploaded_file is not None:
     try:
         if uploaded_file.name.lower().endswith(".csv"):
@@ -231,7 +226,6 @@ if test_df is not None and y_true_labels is not None and models_loaded:
         """,
         unsafe_allow_html=True
     )
-
     y_true = label_encoder.transform(y_true_labels)
     model = models[model_choice]
 
@@ -300,7 +294,6 @@ if test_df is not None and y_true_labels is not None and models_loaded:
         st.pyplot(fig)
 
         st.markdown("</div>", unsafe_allow_html=True)
-
 
 st.markdown(
     """
